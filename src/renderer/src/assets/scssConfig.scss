@@ -1,0 +1,27 @@
+$namespcae: 'zj' !default;
+$block-sel:"-" !default;
+$elem-sel:"_" !default;
+$mod-sel:"--" !default;
+@mixin b($name){
+    $B:#{$namespcae}#{$block-sel}#{$name};
+    .#{$B}{
+      @content;
+   }
+  }
+@mixin e($name){
+  $selector: &;
+  @at-root{
+        #{$selector+$elem-sel+$name} {
+            @content;
+          }
+  }
+  }
+@mixin m($name){
+  $selector:&;
+  @at-root{
+   #{$selector+$mod-sel+$name}{
+      @content;
+    }
+  }
+}
+

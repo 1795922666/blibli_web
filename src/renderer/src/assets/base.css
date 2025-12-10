@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* 禁止用户选中文字 */
+  user-select: none;
+  -webkit-user-select: none;
+    /* Chrome/Safari */
+font-family: 'Noto Sans SC', sans-serif;
+}
+
+.n-tabs .n-tabs-tab .n-tabs-tab__label{
+font-weight: 600;
+}
+.n-tabs .n-tabs-nav.n-tabs-nav--line-type.n-tabs-nav--top .n-tabs-nav-scroll-content{
+  border: 0;
+}
+
+a{
+text-decoration: none;
+color: #999999;
+}
+
+a:hover{
+color:#ff6699;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 2px;
+}
+.btn{
+cursor: pointer;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+.number{
+  color: #d44e7d;
+  margin-left: 2px;
+}
+.md{
+  vertical-align: middle;
+}

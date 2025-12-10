@@ -1,0 +1,138 @@
+@font-face {
+  font-family: "iconfont";
+  /* Project id 4902033 */
+  src: url('iconfont.woff2?t=1749653746542') format('woff2'),
+    url('iconfont.woff?t=1749653746542') format('woff'),
+    url('iconfont.ttf?t=1749653746542') format('truetype');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 20px;
+  font-style: normal;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+
+}
+.icon-clike:before {
+  content: "\e662";
+}
+
+.icon-comment:before {
+  content: "\e663";
+}
+.icon-time:before {
+  margin-right: 3px;
+  content: "\e656";
+}
+
+.icon-shoucang:before {
+  content: "\e605";
+}
+
+.icon-toubix:before {
+  content: "\e655";
+}
+
+.icon-like:before {
+  content: "\e61c";
+}
+.icon-left:before {
+  color: #ffff;
+  content: "\e606";
+}
+
+.icon-right:before {
+  color: #ffff;
+  content: "\e61f";
+}
+.icon-up:before {
+  margin-right: 3px;
+  font-size: 14px;
+  content: "\e604";
+}
+.icon-danmaku:before {
+  margin-right: 3px;
+  content: "\e665";
+}
+
+.icon-play:before {
+  margin-right: 3px;
+  content: "\e603";
+}
+.icon-upload:before {
+  content: "\e702";
+}
+.icon-stop:before {
+  content: "\eb30";
+}
+
+.icon-continue:before {
+
+  content: "\e631";
+}
+
+.icon-retry:before {
+  content: "\e746";
+}
+
+.icon-shouye1:before {
+  content: "\e602";
+}
+
+.icon-clone:before {
+  content: "\e66a";
+  font-weight: 600;
+
+}
+.icon-video:before {
+  content: "\e611";
+  font-size: 40px;
+  color:#00a1d6 ;
+}
+.icon-shrink:before {
+  content: "\e618";
+}
+
+.icon-hide:before {
+  content: "\e61b";
+}
+
+.icon-huanyuanchuangkou:before {
+  content: "\e601";
+}
+
+.icon-sousuo:before {
+  content: "\eafe";
+}
+
+.icon-a_blibli-copy:before {
+  content: "\e77d";
+}
+
+.icon-jingxuan1:before {
+  content: "\e693";
+}
+
+.icon-fengche:before {
+  content: "\e64d";
+}
+
+.icon-shezhi:before {
+  content: "\e600";
+}
+
+.icon-shangchuan:before {
+  content: "\e661";
+}
+
+.icon-bilibili:before {
+  font-size: 30px;
+  content: "\e6d3";
+}
+
+.icon-xinxi:before {
+  content: "\e647";
+}
+
