@@ -6,7 +6,7 @@
         round
         :size="size"
         :fallback-src="defaultImage"
-        :src="`/api/user/getAvatara?path=${userInfo?.avatar}`"
+        :src="`/api/user/getAvatara?path=${userInfo?.id}`"
       >
       </n-avatar>
       <n-skeleton v-else :width="`${size}px`" :height="`${size}px`" round />

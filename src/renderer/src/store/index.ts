@@ -2,10 +2,14 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { token, getUserInfo } from '../server/api/userController'
 import type { userInfo } from '../server/api/types/auth'
+import { useChatStore } from './chat'
+
 export const useAuthStore = defineStore('store', () => {
   const isInitialized = ref(false)
   const isLoggedIn = ref(false)
   const userInfo = ref<userInfo>()
+  const chatStore = useChatStore()
+
   async function initialize(): Promise<void> {
     if (!isInitialized.value) {
       const res = await token()
@@ -18,13 +22,16 @@ export const useAuthStore = defineStore('store', () => {
       isInitialized.value = true
     }
   }
+
   async function getUser(): Promise<void> {
     const user = await getUserInfo()
     if (user != null) {
       userInfo.value = user.data?.data
       isLoggedIn.value = true
+      chatStore.initWebSocket()
     }
   }
+
   return {
     initialize,
     isLoggedIn,

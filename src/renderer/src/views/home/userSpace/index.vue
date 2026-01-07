@@ -12,7 +12,7 @@
           <person-value :user-info="userInfos"></person-value>
         </div>
       </div>
-      <n-tabs type="line" animated style="margin-left: 10px">
+      <n-tabs type="line" animated style="margin-left: 10px" add-tab-style="z-index:1">
         <n-tab name="投稿" tab="投稿"> </n-tab>
         <n-tab name="动态" tab="动态"> </n-tab>
       </n-tabs>
@@ -55,16 +55,17 @@ const userSpace = async (id: string): Promise<void> => {
     userInfos.value = data.data
   }
 }
-const contribution = async (): Promise<void> => {
-  const { data } = await getContribution()
+const contribution = async (userId: string): Promise<void> => {
+  const { data } = await getContribution(userId)
   if (data) {
     userContr.value = data.data
   }
 }
 const handleLoad = (): void => {}
+
 onMounted(async () => {
   await userSpace(newUserId)
-  await contribution()
+  await contribution(newUserId)
 })
 </script>
 

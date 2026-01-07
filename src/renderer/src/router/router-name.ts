@@ -8,7 +8,8 @@ export const RouteNames = {
     MY: '/home/my',
     USERSPACE: '/home/:userId/userspace',
     POSTFILE: '/home/postfile',
-    FOLLOWLIST: '/home/:userId/followlist'
+    FOLLOWLIST: '/home/:userId/followlist',
+    MESSAGE: '/home/message'
   },
   NOT_FOUND: '/404',
   SERVER_ERROR: '/500'

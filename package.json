@@ -29,6 +29,7 @@
     "electron-store": "^8.1.0",
     "electron-updater": "^6.3.9",
     "hls.js": "^1.6.4",
+    "localforage": "^1.10.0",
     "pinia": "^3.0.2",
     "router": "^2.2.0",
     "spark-md5": "^3.0.2",

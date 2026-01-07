@@ -25,7 +25,7 @@
           >已关注</n-button
         >
         <n-button v-else type="primary" @click="follows(true)">关注</n-button>
-        <n-button type="primary" ghost>发消息</n-button>
+        <n-button type="primary" ghost @click="handleSendMessage">发消息</n-button>
       </div>
     </template>
     <n-skeleton v-else width="100%" height="95px" />
@@ -36,8 +36,10 @@
 import { follow } from '@api'
 import type { UserInfo } from '../types'
 import { ref } from 'vue'
+import { useChatStore } from '@store/chat'
 import { useRoute } from 'vue-router'
 const route = useRoute()
+const chatStore = useChatStore()
 interface Props {
   userInfo: UserInfo | null
 }
@@ -50,6 +52,10 @@ const follows = async (bol: boolean): Promise<void> => {
     props.userInfo!.followingCount += bol ? 1 : -1
     followingCount.value = bol ? 1 : -1
   }
+}
+const handleSendMessage = (): void => {
+  chatStore.toggleMessage()
+  chatStore.setCurrentContact(props.userInfo)
 }
 </script>
 

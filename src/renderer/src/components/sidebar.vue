@@ -18,27 +18,44 @@
           class="btn"
           round
           :size="25"
-          :src="`/api/user/getAvatara?path=${user.userInfo?.avatar}`"
+          :src="`/api/user/getAvatara?path=${user.userInfo?.id}`"
           :fallback-src="defaultImage"
           @click="getUserSpace"
         >
         </n-avatar>
         <router-link to="/home/postfile" class="iconfont icon-shangchuan"></router-link>
-        <router-link to="/home/postfile" class="iconfont icon-xinxi"></router-link>
+        <button
+          class="iconfont icon-xinxi"
+          style="border: 0"
+          @click="toggleMessageSidebar"
+        ></button>
         <router-link to="/home/postfile" class="iconfont icon-shezhi"></router-link>
       </div>
     </div>
+    <!-- 消息侧边栏组件 -->
   </div>
+  <message-sidebar
+    :contact="{ id: 11111, name: '用户1', avatar: '/api/user/getAvatara?path=11111' }"
+    :show="chatStore.showMessage"
+    @close="toggleMessageSidebar"
+  />
 </template>
 <script lang="ts" setup>
-import { computed, reactive } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useAuthStore } from '@store'
+import { useChatStore } from '@store/chat'
 import defaultImage from '@renderer/assets/images/default.png'
 const authStore = useAuthStore()
+const chatStore = useChatStore()
 const user = authStore
 const router = useRouter()
 const route = useRoute()
+
+const toggleMessageSidebar = (): void => {
+  chatStore.toggleMessage()
+}
+
 const getUserSpace = (): void => {
   router.push(`/home/${user.userInfo?.id}/userspace`)
 }
@@ -76,6 +93,8 @@ const handleClick = (path: string): void => {
   color: #ff6699;
 }
 @include b(sidebar) {
+  position: relative;
+  z-index: 1000;
   display: flex;
   flex-direction: column;
   width: 70px;
@@ -87,27 +106,33 @@ const handleClick = (path: string): void => {
     justify-content: space-around;
     height: 250px;
     margin: 20px 0;
+
     @include m(button) {
       cursor: pointer;
       text-align: center;
       line-height: 22px;
+
       &:hover {
         color: #ff6699;
       }
+
       & .iconfont {
         font-size: 25px;
         font-weight: 600;
       }
+
       @include e(text) {
         font-size: 12px;
       }
     }
   }
+
   @include e(bottom) {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: flex-end;
+
     @include m(box) {
       display: flex;
       height: 180px;
@@ -115,11 +140,15 @@ const handleClick = (path: string): void => {
       justify-content: space-around;
       line-height: 20px;
       margin-bottom: 20px;
+
       & .iconfont {
         font-size: 25px;
         cursor: pointer;
+        text-align: center;
       }
-      & div:hover {
+
+      & div:hover,
+      & .iconfont:hover {
         color: #ff6699;
       }
     }

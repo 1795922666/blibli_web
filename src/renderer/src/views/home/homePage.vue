@@ -14,8 +14,10 @@
 
 <style lang="scss" scoped>
 @include b(blibli) {
+  position: relative;
   display: flex;
   width: 100%;
+  left: 0;
   height: 92vh;
   background-color: #ffffff;
   @include e(content) {

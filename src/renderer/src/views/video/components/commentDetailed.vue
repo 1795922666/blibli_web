@@ -14,7 +14,7 @@
       <div class="divider"></div>
       <div class="zj-comment-detailed_list">
         <div class="tip">相关回复共{{ data?.reply.length }}条</div>
-        <template v-for="item in data?.reply" :key="item.id">
+        <template v-for="item in data?.reply" :key="item.replyId">
           <comment-reply-test :comment-reply-info="item"></comment-reply-test>
         </template>
       </div>

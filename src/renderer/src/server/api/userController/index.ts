@@ -54,9 +54,24 @@ export const followlist = (id: string): Promise<FlatResponseData<result<void>>> 
     method: 'get'
   })
 }
-export const getContribution = (): Promise<FlatResponseData<result<void>>> => {
+
+export const historyOlder = (
+  contactId: string,
+  lastTime: number
+): Promise<FlatResponseData<result<void>>> => {
   return authRequest({
-    url: `/video/contribution`,
+    url: `/user/history/increment`,
+    method: 'get',
+    params: {
+      contactId,
+      lastTime
+    }
+  })
+}
+
+export const getContribution = (userId: string): Promise<FlatResponseData<result<void>>> => {
+  return authRequest({
+    url: `/video/contribution/${userId}`,
     method: 'get'
   })
 }
