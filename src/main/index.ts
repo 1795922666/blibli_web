@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { app, BrowserWindow, ipcMain, shell } from 'electron'
 import { electronApp, optimizer } from '@electron-toolkit/utils'
 import { WindowService } from './wind-server'

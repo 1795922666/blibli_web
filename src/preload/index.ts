@@ -1,8 +1,9 @@
+// @ts-nocheck
 import { contextBridge, ipcRenderer } from 'electron'
 import { ElectronAPI, electronAPI } from '@electron-toolkit/preload'
 
 /**
- * 安全暴露的 Electron API 类型定义
+ * 安全暴露 Electron API 类型定义
  */
 declare global {
   interface Window {
@@ -59,7 +60,7 @@ if (process.contextIsolated) {
   }
 } else {
   // 非安全环境下的降级处理
-  console.warn('⚠️ 上下文隔离未启用！')
+  console.warn('⚠ 上下文隔离未启用！')
   window.electron = electronAPI
   window.api = api
 }

@@ -4,8 +4,8 @@ import path, { join } from 'path'
 // 窗口配置接口
 export interface WindowOptions extends BrowserWindowConstructorOptions {
   /**
-   * 路由路径 (hash路由)
-   * 例如: '/dashboard' 或 'settings'
+   * 路由路径
+   *
    */
   route?: string
 

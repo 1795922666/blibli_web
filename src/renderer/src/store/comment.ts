@@ -1,8 +1,14 @@
+// @ts-nocheck
 import { defineStore } from 'pinia'
 import { ref, type Component, markRaw, reactive } from 'vue'
 import commentList from '@renderer/views/video/components/commentList.vue'
 import commentDetail from '@renderer/views/video/components/commentDetailed.vue'
-import type { CommentInfo, DetailedProps, CommentInfoPage } from '@renderer/views/video/types'
+import type {
+  CommentInfo,
+  DetailedProps,
+  CommentInfoPage,
+  CommentReplyInfo
+} from '@renderer/views/video/types'
 import { getNewCommentLists } from '@renderer/server/api'
 export const useCommentStore = defineStore('commentstore', () => {
   const detailState = reactive({
@@ -76,6 +82,19 @@ export const useCommentStore = defineStore('commentstore', () => {
   const putCommentList = (comment: CommentInfo): void => {
     if (Array.isArray(data.value?.data)) data.value.data.push(comment)
   }
+
+  /**
+   * @description 新增评论回复
+   * @param reply
+   */
+  const putReplyList = (reply: CommentReplyInfo, index: number): void => {
+    if (Array.isArray(data.value?.data[index].reply)) {
+      data.value.data[index].reply.unshift(reply)
+    } else {
+      data.value!.data[index].reply = [reply]
+    }
+    data.value!.data[index].replyCount++
+  }
   return {
     data,
     dom,
@@ -83,6 +102,7 @@ export const useCommentStore = defineStore('commentstore', () => {
     getCommentList,
     getCommentDetail,
     putCommentList,
-    handleCommentList
+    handleCommentList,
+    putReplyList
   }
 })

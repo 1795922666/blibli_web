@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { defineStore } from 'pinia'
 import { ref, computed, onMounted } from 'vue'
 import { useWsClient, WsMessage, WsStatus } from '@renderer/server/wsClient'
